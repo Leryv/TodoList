@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Table, Space, Divider, Popconfirm, message } from "antd";
 import Checkbox from "antd/lib/checkbox/Checkbox";
-import EditModal from './Form/EditForm';
+import EditModal from './Modal/EditModal';
 import { deleteTodo } from "../features/Todos";
 
 const TableComponent = () => {
@@ -35,11 +35,11 @@ const TableComponent = () => {
 
                     {/* DELETE DATA */}
                     <Popconfirm // popup konfirmasi yakin hapus data?
-                        title="Are you sure to delete this task?"
+                        title="Apakah anda Yakin ingin menghapus?"
                         onConfirm={() => {
                             // manggil function redux deleteTodo di "../features/Todos"
                             dispatch(deleteTodo({ id: rows }));
-                            message.success('Task deleted');
+                            message.info('Task Terhapus');
                         }}
                     >
                         <a>Delete</a>

@@ -5,10 +5,14 @@ import TableComponent from '../Todo/TableComponent';
 function App() {
   return (
     <div className="App">
-      <Card title = "Todo list" style={{marginTop: 48}}>
-        <CreateModal />
-        <TableComponent />
-      </Card>
+    <React.StrictMode>
+        <Card title = "Todo list" style={{marginTop: 50}}>
+          <CreateModal />
+          <TableComponent />
+        </Card>
+    </React.StrictMode>
+
+
     </div>
   );
 }

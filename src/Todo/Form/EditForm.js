@@ -1,12 +1,12 @@
 import React from "react";
-import { Modal, Input, Form } from "antd";
+import { Modal, Input, Form,message } from "antd";
 
 const EditForm = ({ visible, onUpdate, onCancel, todo }) => {
     const [form] = Form.useForm();
     return (
         <Modal
             visible={visible}
-            title="Edit"
+            title="Edit Task"
             okText="Edit"
             cancelText="Cancel"
             onOk={() => {
@@ -14,6 +14,7 @@ const EditForm = ({ visible, onUpdate, onCancel, todo }) => {
                     .validateFields()
                     .then((values) => {
                         onUpdate(values);
+                        message.success('Task Berhasil Diubah');
                     })
                     .catch((info) => {
                         console.log('Validate Failed:', info);

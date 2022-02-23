@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Modal, Input, Button, Form, Checkbox } from "antd";
 import { useDispatch } from "react-redux";
 import { updateTodo } from "../../features/Todos";
-import EditForm from "./Form/EditForm";
+import EditForm from "../Form/EditForm";
 
+// getContainer={false};
 const EditModal = ({ id, todo }) => {
 
     const dispatch = useDispatch();
@@ -23,6 +24,14 @@ const EditModal = ({ id, todo }) => {
 
     return (
         <div>
+            
+            <a
+                onClick={() => {
+                    setVisible(true);
+                }}
+            >
+                Edit
+            </a>
             <EditForm
                 todo={todo}
                 visible={visible}
@@ -31,14 +40,6 @@ const EditModal = ({ id, todo }) => {
                     setVisible(false);
                 }}
             />
-            <a
-                onClick={() => {
-                    setVisible(true);
-                }}
-            >
-                Edit
-            </a>
-
         </div >
     );
 };

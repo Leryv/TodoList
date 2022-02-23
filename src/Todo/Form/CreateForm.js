@@ -5,9 +5,10 @@ const CreateForm = ({ visible, onCreate, onCancel }) => {
     const [form] = Form.useForm();
 
     return (
-        <Modal
+        <Modal 
+            getContainer={false}
             visible={visible}
-            title="Create"
+            title="New Task"
             okText="Create"
             cancelText="Cancel"
             onOk={() => {
@@ -16,7 +17,7 @@ const CreateForm = ({ visible, onCreate, onCancel }) => {
                     .then((values) => {
                         form.resetFields();
                         onCreate(values);
-                        message.success('Task added');
+                        message.success('Task Berhasil Ditambah');
                     })
                     .catch((info) => {
                         console.log('Validate Failed:', info);
@@ -37,11 +38,11 @@ const CreateForm = ({ visible, onCreate, onCancel }) => {
                     rules={[
                         {
                             required: true,
-                            message: 'Todo cannot be empty!',
+                            message: 'Please Input Task',
                         },
                     ]}
                 >
-                    <Input placeholder="Input todo..." />
+                    <Input placeholder="Input Task" />
                 </Form.Item>
             </Form>
         </Modal>
