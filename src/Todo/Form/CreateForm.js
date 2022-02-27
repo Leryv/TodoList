@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Modal, Input, Button, Form, message } from "antd";
+import React from "react";
+import { Modal, Input, Form, message } from "antd";
 
 const CreateForm = ({ visible, onCreate, onCancel }) => {
     const [form] = Form.useForm();
 
     return (
-        <Modal 
+        <Modal
             getContainer={false}
             visible={visible}
             title="New Task"
